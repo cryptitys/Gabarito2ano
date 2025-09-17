@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("task_76781700.json")
+  fetch("src/gabarito/task_76781700.json")
     .then(response => response.json())
     .then(data => renderCards(data))
     .catch(err => console.error("Erro ao carregar JSON:", err));
