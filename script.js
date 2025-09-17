@@ -39,18 +39,15 @@ function renderCards(questoes) {
     }
 
     // Resposta (com letra da alternativa + texto)
-    const resposta = document.createElement("div");
-    resposta.className = "resposta-correta";
+// Resposta (destacada com letra da alternativa + texto)
+const resposta = document.createElement("div");
+resposta.className = "resposta-correta";
 
-    const letra = Object.keys(q.alternativa_correta)[0]; // ex: "E"
-    const texto = Object.values(q.alternativa_correta)[0]; // ex: "idealização..."
+const letra = Object.keys(q.alternativa_correta)[0]; // ex: "E"
+const texto = Object.values(q.alternativa_correta)[0]; // ex: "idealização..."
 
-    resposta.innerHTML = `
-      <i class="fas fa-check-circle"></i>
-      <span><strong>Resposta:</strong> [${letra}] ${texto}</span>
-    `;
-    card.appendChild(resposta);
-
-    container.appendChild(card);
-  });
-}
+resposta.innerHTML = `
+  <i class="fas fa-check-circle"></i>
+  <span><strong>Resposta:</strong> [${letra}] ${texto}</span>
+`;
+card.appendChild(resposta);
