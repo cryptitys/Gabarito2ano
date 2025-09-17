@@ -1913,10 +1913,16 @@ input:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
 }
-.logo-header {
+..logo-header {
   max-width: 100px;
   margin-bottom: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-        }
+
+  /* 👇 estilos da borda */
+  border: 3px solid var(--primary);   /* cor da borda */
+  border-radius: 12px;                /* cantos arredondados */
+  padding: 6px;                       /* espaço entre logo e borda */
+  background: var(--bg-card);         /* fundo interno pra destacar */
+}
