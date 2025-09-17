@@ -1889,3 +1889,27 @@ input:focus-visible {
         font-size: 13px;
     }
 }
+ .resposta-correta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(16, 185, 129, 0.15); /* fundo verde claro */
+  border: 2px solid var(--success);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-top: 16px;
+  font-size: 15px;
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resposta-correta i {
+  color: var(--success);
+  font-size: 20px;
+}
+
+.resposta-correta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+}
