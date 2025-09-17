@@ -1926,3 +1926,6 @@ input:focus-visible {
   padding: 6px;                       /* espaço entre logo e borda */
   background: var(--bg-card);         /* fundo interno pra destacar */
 }
+.btn {
+  margin-bottom: 12px; /* espaço entre os botões */
+}
