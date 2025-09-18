@@ -1,44 +1,52 @@
-<!DOCTYPEhtml>
+<!DOCTYPE html>
 <html lang="pt-BR">
-<cabeça>
-<meta charset="UTF-8">
-<meta name="viewport" content="largura=largura do dispositivo, escala inicial=1,0">
-<title>Razão de Respostas</title>
-<link rel="stylesheet" href="src/css/styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razão de Respostas</title>
+    <link rel="stylesheet" href="src/css/styles.css">
 </head>
-<corpo>
-<nav class="navbar">
-<div class="contêiner">
-<a href="#" class="logo">gabarito de Respostas do 2º Dia, 2º Ano</a>
-</div>
-</nav>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Gabarito de Respostas do 2º Dia, 2º Ano</a>
+        </div>
+    </nav>
 
-<classe principal="conteúdo principal do contêiner">
-<header class="page-header">
-<h1>Lista de Questões</h1>
-<p>Afirmações com respostas corretas destacadas. se vc errar vc é burro(a) kkkkkk</p>
+    <!-- Conteúdo principal -->
+    <main id="content" style="display:none;">
+        <header class="page-header">
+            <h1>Lista de Questões</h1>
+            <p>Afirmações com respostas corretas destacadas. Se você errar, você é burro(a) kkkkkk</p>
+        </header>
 
-</header>
+        <section id="answer-key" class="questions-grid">
+            <!-- Questões serão carregadas aqui pelo script.js -->
+        </section>
+    </main>
 
-<seção id="tecla de resposta" class="questions-grid"></section>
-</main>
+    <!-- Footer -->
+    <footer class="footer">
+        Cryptitys... aproveite hehe
+    </footer>
 
-<footer class="footer">
-Cryptitys... aproveite hehe</footer> <!-- Loader -->
-<div id="loader">
-<div class="spinner"></div>
-<p>Aguarde o teste começar..signed: vitor .</p>
-</div>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-// Carregando simulação (3 segundos)
-setTimeout(() => {
-document.getElementById("loader").style.display = "none";
-document.getElementById("content").style.display = "block";
-}, 100000000);
-});
-</script>
-<script src="src/js/script.js"></script>
+    <!-- Loader -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Aguarde o teste começar... signed: Vitor.</p>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Simulação de carregamento (3 segundos)
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            }, 3000000000);
+        });
+    </script>
+    <script src="src/js/script.js"></script>
 </body>
 </html>
- 
