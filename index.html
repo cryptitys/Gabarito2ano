@@ -18,14 +18,25 @@
       <h1>Lista de Questões</h1>
       <p>Enunciados com respostas corretas destacadas.</p>
     </header>
-
+ <!-- Loader -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Aguardando início da prova...</p>
+    </div>
+    
     <section id="gabarito" class="questions-grid"></section>
   </main>
 
   <footer class="footer">
     <p>Desenvolvido com carregamento  automaticamente by vitor</p>
   </footer>
-
+<script>document.addEventListener("DOMContentLoaded", function() {
+    // Simulação de carregamento (3 segundos)
+    setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    }, 10000000);
+});</script>
   <script src="src/js/script.js"></script>
 </body>
 </html>
