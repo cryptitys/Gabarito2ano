@@ -3,6 +3,7 @@ async function carregarGabarito() {
     const response = await fetch("task_76781707.json");
     const questoes = await response.json();
 
+    
     const container = document.getElementById("gabarito");
 
     questoes.forEach(q => {
