@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Carrega o arquivo JSON
-  fetch("task_76781679.json")
+  fetch("task_76781707.json")
     .then(response => {
       if (!response.ok) throw new Error("Erro ao carregar JSON");
       return response.json();
