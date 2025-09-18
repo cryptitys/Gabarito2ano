@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+
   // Carrega o arquivo JSON
   async function carregarGabarito() {
   try {
