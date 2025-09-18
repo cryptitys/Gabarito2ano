@@ -21,9 +21,7 @@
             <p>Afirmações com respostas corretas destacadas. Se você errar, você é burro(a) kkkkkk</p>
         </header>
 
-        <section id="answer-key" class="questions-grid">
-            <!-- Questões serão carregadas aqui pelo script.js -->
-        </section>
+        
     </main>
 
     <!-- Footer -->
@@ -32,20 +30,21 @@
     </footer>
 
     <!-- Loader -->
+       <!-- Loader -->
     <div id="loader">
         <div class="spinner"></div>
-        <p>Aguarde o teste começar... signed: Vitor.</p>
+        <p>Aguardando início da prova..signated by: vitor.</p>
     </div>
 
     <!-- Scripts -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Simulação de carregamento (3 segundos)
-            setTimeout(() => {
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("content").style.display = "block";
-            }, 3000000000);
-        });
+    // Simulação de carregamento (3 segundos)
+    setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    }, 300000000000);
+});
     </script>
     <script src="src/js/script.js"></script>
 </body>
