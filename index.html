@@ -30,13 +30,27 @@
   <footer class="footer">
     <p>Desenvolvido com carregamento  automaticamente by vitor</p>
   </footer>
-<script>document.addEventListener("DOMContentLoaded", function() {
-    // Simulação de carregamento (3 segundos)
-    setTimeout(() => {
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const now = new Date(); // Hora atual
+    const today1PM = new Date(); // Criar data para hoje 13:00
+    today1PM.setHours(13, 0, 0, 0); // 13:00:00.000
+
+    // Calcular diferença em milissegundos
+    let diff = today1PM - now;
+
+    // Se já passou das 13:00, liberar imediatamente
+    if (diff <= 0) {
         document.getElementById("loader").style.display = "none";
         document.getElementById("content").style.display = "block";
-    }, 100000000200);
-});</script>
+    } else {
+        setTimeout(() => {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        }, diff);
+    }
+});
+</script>
   <script src="src/js/script.js"></script>
 </body>
 </html>
