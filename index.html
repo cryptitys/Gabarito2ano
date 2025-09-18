@@ -1,51 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Razão de Respostas</title>
-    <link rel="stylesheet" href="src/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabarito</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">Gabarito de Respostas do 2º Dia, 2º Ano</a>
-        </div>
-    </nav>
-
-    <!-- Conteúdo principal -->
-    <main id="content" style="display:none;">
-        <header class="page-header">
-            <h1>Lista de Questões</h1>
-            <p>Afirmações com respostas corretas destacadas. Se você errar, você é burro(a) kkkkkk</p>
-        </header>
-
-        
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        Cryptitys... aproveite hehe
-    </footer>
-
-    <!-- Loader -->
-       <!-- Loader -->
-    <div id="loader">
-        <div class="spinner"></div>
-        <p>Aguardando início da prova..signated by: vitor.</p>
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo"> Gabarito da prova 2ano / 2º dia</a>
     </div>
+  </nav>
 
-    <!-- Scripts -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-    // Simulação de carregamento (3 segundos)
-    setTimeout(() => {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("content").style.display = "block";
-    }, 300000000000);
-});
-    </script>
-    <script src="src/js/script.js"></script>
+  <main class="container main-content">
+    <header class="page-header">
+      <h1>Lista de Questões</h1>
+      <p>Enunciados com respostas corretas destacadas.</p>
+    </header>
+
+    <section id="gabarito" class="questions-grid"></section>
+  </main>
+
+  <footer class="footer">
+    <p>Desenvolvido com carregamento  automaticamente by vitor</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
