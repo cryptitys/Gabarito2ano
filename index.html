@@ -3,46 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perguntas e Respostas gabarito oficial </title>
-
-  <!-- Descrição quando alguém compartilha -->
-<meta property="og:title" content="gabarito">
-<meta property="og:description" content="Fique por dentro dos gabaritos das provas.">
-<meta property="og:image" content="src/icon/connection_16246373 (1).png"> <!-- caminho da imagem que vai aparecer -->
-<meta property="og:url" content="https://gabarito2ano.vercel.app/">
-<meta property="og:type" content="website">
-
-  <!-- Para Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="gabarito">
-<meta name="twitter:description" content="Fique por dentro dos gabaritos das provas.">
-<meta name="twitter:image" content="src/icon/connection_16246373 (1).png">
-  
-<link rel="stylesheet" href="src/css/styles.css">
-
+  <title>Gabarito</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="page-header">
-     <h1>Gabarito  Prova Paulista 2° ano | 3º bimestre</h1>
- 
-    <a href="gabarito.pdf" download class="btn btn-primary">
-    <img src="src/icon/download_8080679.png" alt="Ícone Download" style="width:20px; vertical-align:middle; margin-right:8px;">
-    Abaixar Gabarito Oficial
-</a>
-        <a href="#gabarito" class="btn btn-primary">
-  <img src="src/icon/swipe-down_17850177 (1).png" alt="Ícone Download" style="width:20px; vertical-align:middle; margin-right:8px;">
-  Veja o gabarito e as perguntas 
-        </a>
-  
-  
-  </header>
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">📘 Gabarito</a>
+    </div>
+  </nav>
 
-  <main class="container" id="gabarito">
-    <div id="cards-container" class="grade-cards"></div>
+  <main class="container main-content">
+    <header class="page-header">
+      <h1>Lista de Questões</h1>
+      <p>Enunciados com respostas corretas destacadas.</p>
+    </header>
+
+    <section id="gabarito" class="questions-grid"></section>
   </main>
-  
 
-  
-  <script src="src/js/script.js"></script>
+  <footer class="footer">
+    <p>Desenvolvido com ❤️ | JSON carregado automaticamente</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
