@@ -75,3 +75,56 @@
 }
 
 document.addEventListener("DOMContentLoaded", carregarGabarito);
+document.addEventListener("DOMContentLoaded", function() {
+    const now = new Date();
+
+    // Datas e horários específicos
+    const schedule = [
+        { date: "2025-09-19", startHour: 13, endHour: 15 },
+        { date: "2025-09-22", startHour: 13, endHour: 15 }
+    ];
+
+    let allowed = false;
+
+    for (const s of schedule) {
+        const start = new Date(`${s.date}T${String(s.startHour).padStart(2, '0')}:00:00`);
+        const end = new Date(`${s.date}T${String(s.endHour).padStart(2, '0')}:00:00`);
+
+        if (now >= start && now <= end) {
+            // Dentro do horário permitido
+            allowed = true;
+            const timeUntilEnd = end - now;
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("content").style.display = "block";
+
+            // Fechar automaticamente ao passar das 15:00
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "block";
+                document.getElementById("content").style.display = "none";
+            }, timeUntilEnd);
+            break;
+        } else if (now < start) {
+            // Antes do horário: agendar liberação
+            const timeUntilStart = start - now;
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("content").style.display = "block";
+
+                // Fechar automaticamente ao passar das 15:00
+                const timeUntilEnd = end - start;
+                setTimeout(() => {
+                    document.getElementById("loader").style.display = "block";
+                    document.getElementById("content").style.display = "none";
+                }, timeUntilEnd);
+            }, timeUntilStart);
+            allowed = true;
+            break;
+        }
+    }
+
+    // Fora do período permitido
+    if (!allowed) {
+        document.getElementById("loader").style.display = "block";
+        document.getElementById("content").style.display = "none";
+    }
+});
