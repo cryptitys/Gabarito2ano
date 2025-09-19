@@ -1,6 +1,5 @@
-
-  // Carrega o arquivo JSON
-  async function carregarGabarito() {
+// Função para carregar o gabarito JSON
+async function carregarGabarito() {
   try {
     const response = await fetch("task_76781733.json");
     const questoes = await response.json();
@@ -33,7 +32,7 @@
       card.appendChild(header);
       card.appendChild(enunciado);
 
-      // Imagem do enunciado (se existir)
+      // Imagem (se existir)
       if (q.imagem_url) {
         const img = document.createElement("img");
         img.src = q.imagem_url;
@@ -49,9 +48,7 @@
       const letra = Object.keys(q.alternativa_correta)[0];
       let valor = q.alternativa_correta[letra];
 
-      // Se a resposta contiver "[IMAGEM]" ou parecer uma URL/base64 de imagem
       if (typeof valor === "string" && (valor.includes("http") || valor.startsWith("data:image"))) {
-        // Remove marcador [IMAGEM] se existir
         valor = valor.replace("[IMAGEM]", "").trim();
 
         respostaDiv.innerHTML = `<strong>Resposta [${letra}]:</strong><br>`;
@@ -74,57 +71,54 @@
   }
 }
 
-document.addEventListener("DOMContentLoaded", carregarGabarito);
+// Controle de horário de exibição
 document.addEventListener("DOMContentLoaded", function() {
-    const now = new Date();
+  const now = new Date();
 
-    // Datas e horários específicos
-    const schedule = [
-        { date: "2025-09-19", startHour: 13, endHour: 15 },
-        { date: "2025-09-22", startHour: 13, endHour: 15 }
-    ];
+  // Datas e horários permitidos
+  const schedule = [
+    { date: "2025-09-19", startHour: 13, endHour: 15 },
+    { date: "2025-09-22", startHour: 13, endHour: 15 }
+  ];
 
-    let allowed = false;
+  let allowed = false;
 
-    for (const s of schedule) {
-        const start = new Date(`${s.date}T${String(s.startHour).padStart(2, '0')}:00:00`);
-        const end = new Date(`${s.date}T${String(s.endHour).padStart(2, '0')}:00:00`);
+  for (const s of schedule) {
+    const start = new Date(`${s.date}T${String(s.startHour).padStart(2, '0')}:00:00`);
+    const end = new Date(`${s.date}T${String(s.endHour).padStart(2, '0')}:00:00`);
 
-        if (now >= start && now <= end) {
-            // Dentro do horário permitido
-            allowed = true;
-            const timeUntilEnd = end - now;
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("content").style.display = "block";
+    if (now >= start && now <= end) {
+      allowed = true;
+      const timeUntilEnd = end - now;
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("content").style.display = "block";
+      carregarGabarito();
 
-            // Fechar automaticamente ao passar das 15:00
-            setTimeout(() => {
-                document.getElementById("loader").style.display = "block";
-                document.getElementById("content").style.display = "none";
-            }, timeUntilEnd);
-            break;
-        } else if (now < start) {
-            // Antes do horário: agendar liberação
-            const timeUntilStart = start - now;
-            setTimeout(() => {
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("content").style.display = "block";
-
-                // Fechar automaticamente ao passar das 15:00
-                const timeUntilEnd = end - start;
-                setTimeout(() => {
-                    document.getElementById("loader").style.display = "block";
-                    document.getElementById("content").style.display = "none";
-                }, timeUntilEnd);
-            }, timeUntilStart);
-            allowed = true;
-            break;
-        }
-    }
-
-    // Fora do período permitido
-    if (!allowed) {
+      // Fechar após o horário limite
+      setTimeout(() => {
         document.getElementById("loader").style.display = "block";
         document.getElementById("content").style.display = "none";
+      }, timeUntilEnd);
+      break;
+    } else if (now < start) {
+      const timeUntilStart = start - now;
+      setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        carregarGabarito();
+
+        setTimeout(() => {
+          document.getElementById("loader").style.display = "block";
+          document.getElementById("content").style.display = "none";
+        }, end - start);
+      }, timeUntilStart);
+      allowed = true;
+      break;
     }
+  }
+
+  if (!allowed) {
+    document.getElementById("loader").style.display = "block";
+    document.getElementById("content").style.display = "none";
+  }
 });
